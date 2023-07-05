@@ -1,0 +1,22 @@
+2023-07-05 14:50:56 DEBUG TelegramBot:35 - /start
+2023-07-05 14:50:59 DEBUG TelegramBot:35 - hello
+2023-07-05 14:54:40 DEBUG TelegramBot:36 - /start
+2023-07-05 14:54:42 DEBUG TelegramBot:36 - hi
+2023-07-05 14:54:47 DEBUG TelegramBot:36 - ✋
+2023-07-05 15:02:08 DEBUG TelegramBot:37 - hello
+2023-07-05 15:02:08 ERROR TelegramBot:49 - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+2023-07-05 15:02:40 DEBUG TelegramBot:37 - ✋
+2023-07-05 15:02:40 ERROR TelegramBot:49 - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+2023-07-05 15:03:52 DEBUG TelegramBot:37 - hshs
+2023-07-05 15:03:52 ERROR TelegramBot:49 - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+2023-07-05 15:04:31 DEBUG TelegramBot:37 - /start
+2023-07-05 15:04:31 ERROR TelegramBot:49 - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+2023-07-05 15:05:02 DEBUG TelegramBot:37 - Hello
+2023-07-05 15:05:02 ERROR TelegramBot:49 - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+2023-07-05 15:11:49 DEBUG TelegramBot:37 - /start
+2023-07-05 15:11:57 DEBUG TelegramBot:37 - hello
+2023-07-05 17:22:00 DEBUG TelegramBot:48 - /start
+2023-07-05 17:43:49 DEBUG UpdateProducerImpl:12 - hfjhfjhghk
+2023-07-05 17:44:31 ERROR UpdateController:36 - Received unsupported message type Update(updateId=242244333, message=null, inlineQuery=null, chosenInlineQuery=null, callbackQuery=null, editedMessage=Message(messageId=167, from=User(id=307657207, firstName=Олег 🇺🇦, isBot=false, lastName=null, userName=olegbroz, languageCode=uk, canJoinGroups=null, canReadAllGroupMessages=null, supportInlineQueries=null, isPremium=null, addedToAttachmentMenu=null), date=1688568229, chat=Chat(id=307657207, type=private, title=null, firstName=Олег 🇺🇦, lastName=null, userName=olegbroz, photo=null, description=null, inviteLink=null, pinnedMessage=null, stickerSetName=null, canSetStickerSet=null, permissions=null, slowModeDelay=null, bio=null, linkedChatId=null, location=null, messageAutoDeleteTime=null, hasPrivateForwards=null, HasProtectedContent=null, joinToSendMessages=null, joinByRequest=null), forwardFrom=null, forwardFromChat=null, forwardDate=null, text=Hello, entities=null, captionEntities=null, audio=null, document=null, photo=null, sticker=null, video=null, contact=null, location=null, venue=null, animation=null, pinnedMessage=null, newChatMembers=[], leftChatMember=null, newChatTitle=null, newChatPhoto=null, deleteChatPhoto=null, groupchatCreated=null, replyToMessage=null, voice=null, caption=null, superGroupCreated=null, channelChatCreated=null, migrateToChatId=null, migrateFromChatId=null, editDate=1688568271, game=null, forwardFromMessageId=null, invoice=null, successfulPayment=null, videoNote=null, authorSignature=null, forwardSignature=null, mediaGroupId=null, connectedWebsite=null, passportData=null, forwardSenderName=null, poll=null, replyMarkup=null, dice=null, viaBot=null, senderChat=null, proximityAlertTriggered=null, messageAutoDeleteTimerChanged=null, isAutomaticForward=null, hasProtectedContent=null, webAppData=null, videoChatStarted=null, videoChatEnded=null, videoChatParticipantsInvited=null, videoChatScheduled=null), channelPost=null, editedChannelPost=null, shippingQuery=null, preCheckoutQuery=null, poll=null, pollAnswer=null, myChatMember=null, chatMember=null, chatJoinRequest=null)
+2023-07-05 17:44:56 DEBUG UpdateProducerImpl:12 - 
+2023-07-05 17:45:42 DEBUG UpdateProducerImpl:12 - 
