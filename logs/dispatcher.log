@@ -81,3 +81,6 @@
 2023-07-10 12:34:20 DEBUG UpdateProducerImpl:20 - hello
 2023-07-10 12:34:49 DEBUG UpdateProducerImpl:20 - hello from chat
 2023-07-10 12:36:57 DEBUG UpdateProducerImpl:20 - hello from chat
+2023-07-10 13:39:01 DEBUG UpdateProducerImpl:20 - helo
+2023-07-10 13:39:01 DEBUG UpdateProducerImpl:20 - sadsa
+2023-07-10 13:39:21 DEBUG UpdateProducerImpl:20 - hello
