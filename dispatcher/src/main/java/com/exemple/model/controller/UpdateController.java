@@ -30,7 +30,7 @@ public class UpdateController {
             log.error("Received update is null");
             return;
         }
-        if (update.getMessage() != null) {
+        if (update.hasMessage()) {
             distributeMessageByType(update);
         } else {
             log.error("Received unsupported message type " + update);
@@ -40,11 +40,11 @@ public class UpdateController {
 
     private void distributeMessageByType(Update update) {
         var message = update.getMessage();
-        if (message.getText() != null) {
+        if (message.hasText()) {
             processTextMassage(update);
-        } else if (message.getDocument() != null) {
+        } else if (message.hasDocument()) {
             processDocMassage(update);
-        } else if (message.getPhoto() != null) {
+        } else if (message.hasPhoto()) {
             processPhotoMassage(update);
         } else {
             setUnsupportedMessageTypeView(update);
