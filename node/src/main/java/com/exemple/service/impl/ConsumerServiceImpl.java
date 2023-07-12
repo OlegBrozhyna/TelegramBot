@@ -15,7 +15,7 @@ import static com.exemple.model.RabbitQueue.*;
 public class ConsumerServiceImpl implements ConsumerService {
     private final MainService mainService;
 
-    public ConsumerServiceImpl( MainService mainService) {
+    public ConsumerServiceImpl(MainService mainService) {
         this.mainService = mainService;
 
     }
@@ -23,20 +23,23 @@ public class ConsumerServiceImpl implements ConsumerService {
     @Override
     @RabbitListener(queues = TEXT_MESSAGE_UPDATE)
     public void consumeTextMessageUpdates(Update update) {
-       log.debug("NODE: Text message is received");
-       mainService.processTextMessage(update);
+        log.debug("NODE: Text message is received");
+        mainService.processTextMessage(update);
 
     }
 
     @Override
     @RabbitListener(queues = DOC_MESSAGE_UPDATE)
     public void consumeDocMessageUpdates(Update update) {
-log.debug("NODE: Doc message is received");
+        log.debug("NODE: Doc message is received");
+        mainService.processDocMessage(update);
     }
+
 
     @Override
     @RabbitListener(queues = PHOTO_MESSAGE_UPDATE)
     public void consumePhotoMessageUpdates(Update update) {
-log.debug("NODE: Photo message is received");
+        log.debug("NODE: Photo message is received");
+        mainService.processPhotoMessage(update);
     }
 }

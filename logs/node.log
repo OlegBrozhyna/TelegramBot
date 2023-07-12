@@ -34,3 +34,11 @@
 2023-07-12 10:42:04 DEBUG ConsumerServiceImpl:26 - NODE: Text message is received
 2023-07-12 10:50:53 DEBUG ConsumerServiceImpl:26 - NODE: Text message is received
 2023-07-12 10:51:36 DEBUG ConsumerServiceImpl:26 - NODE: Text message is received
+2023-07-12 12:25:43 DEBUG ConsumerServiceImpl:26 - NODE: Text message is received
+2023-07-12 12:25:47 DEBUG ConsumerServiceImpl:26 - NODE: Text message is received
+2023-07-12 12:27:10 DEBUG ConsumerServiceImpl:26 - NODE: Text message is received
+2023-07-12 12:27:12 DEBUG ConsumerServiceImpl:26 - NODE: Text message is received
+2023-07-12 12:27:14 DEBUG ConsumerServiceImpl:26 - NODE: Text message is received
+2023-07-12 12:32:00 DEBUG ConsumerServiceImpl:26 - NODE: Text message is received
+2023-07-12 12:32:26 DEBUG ConsumerServiceImpl:26 - NODE: Text message is received
+2023-07-12 12:32:36 DEBUG ConsumerServiceImpl:42 - NODE: Photo message is received
