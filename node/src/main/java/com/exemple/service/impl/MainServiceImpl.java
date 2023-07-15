@@ -3,6 +3,7 @@ package com.exemple.service.impl;
 import com.exemple.dao.AppUserDAO;
 import com.exemple.dao.RawDataDAO;
 import com.exemple.entity.AppDocument;
+import com.exemple.entity.AppPhoto;
 import com.exemple.entity.AppUser;
 import com.exemple.entity.RawData;
 import com.exemple.exception.UploadFileException;
@@ -172,10 +173,16 @@ public class MainServiceImpl implements MainService {
         var chatId = update.getMessage().getChatId();
         if (isNotAllowToSendContent(chatId, appUser)) {
             return;
+        }try {
+            AppPhoto photo=fileService.processPhoto(update.getMessage());
+            //TODO Add download link generation
+            var answer = "Photo uploaded successfully!"
+                    + "Download link: http://Test.downloadPhoto ";
+            sendAnswer(answer, chatId);
+        } catch (UploadFileException ex) {
+            log.error(ex);
+            String error = "Unfortunately, the file download failed. Please try again later.";
+            sendAnswer(error, chatId);
         }
-        //TODO Add photo save
-        var answer = "Photo uploaded successfully!"
-                + "Download link: http://Test.downloadPhoto ";
-        sendAnswer(answer, chatId);
     }
 }
