@@ -2,11 +2,14 @@ package com.exemple.service.impl;
 
 import com.exemple.dao.AppUserDAO;
 import com.exemple.dao.RawDataDAO;
+import com.exemple.entity.AppDocument;
 import com.exemple.entity.AppUser;
 import com.exemple.entity.RawData;
-import com.exemple.entity.enums.UserState;
+import com.exemple.exception.UploadFileException;
+import com.exemple.service.FileService;
 import com.exemple.service.MainService;
 import com.exemple.service.ProducerService;
+import com.exemple.service.enums.ServiceCommand;
 import lombok.Builder;
 import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Service;
@@ -24,13 +27,17 @@ import static com.exemple.service.enums.ServiceCommand.*;
 public class MainServiceImpl implements MainService {
     private final RawDataDAO rawDataDAO;
     private final ProducerService producerService;
-
     private final AppUserDAO appUserDAO;
+    private final FileService fileService;
 
-    public MainServiceImpl(RawDataDAO rawDataDAO, ProducerService producerService, AppUserDAO appUserDAO) {
+    public MainServiceImpl(RawDataDAO rawDataDAO,
+                           ProducerService producerService,
+                           AppUserDAO appUserDAO,
+                           FileService fileService) {
         this.rawDataDAO = rawDataDAO;
         this.producerService = producerService;
         this.appUserDAO = appUserDAO;
+        this.fileService = fileService;
     }
 
     @Override
@@ -41,7 +48,7 @@ public class MainServiceImpl implements MainService {
         var userState = appUser.getState();
         var text = update.getMessage().getText();
         var output = "";
-
+        var serviceCommand = ServiceCommand.fromValue(text);
         if (CANCEL.equals(text)) {
             output = cancelProcess(appUser);
         } else if (BASIC_STATE.equals(userState)) {
@@ -128,10 +135,17 @@ public class MainServiceImpl implements MainService {
         if (isNotAllowToSendContent(chatId, appUser)) {
             return;
         }
-        //TODO Add document save
-        var answer = "Document uploaded successfully!"
-                + "Download link: http://Test.downloadPhoto ";
-        sendAnswer(answer, chatId);
+        try {
+            AppDocument doc = fileService.processDoc(update.getMessage());
+            //TODO Add document save
+            var answer = "Document uploaded successfully!"
+                    + "Download link: http://Test.downloadPhoto ";
+            sendAnswer(answer, chatId);
+        } catch (UploadFileException ex) {
+            log.error(ex);
+            String error = "Unfortunately, the file download failed. Please try again later.";
+            sendAnswer(error, chatId);
+        }
 
     }
 

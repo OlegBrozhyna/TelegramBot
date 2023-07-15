@@ -1,8 +1,8 @@
 package com.exemple.service.impl;
 
+import com.exemple.service.FileService;
 import com.exemple.service.ConsumerService;
 import com.exemple.service.MainService;
-import com.exemple.service.ProducerService;
 import lombok.extern.log4j.Log4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
@@ -14,10 +14,11 @@ import static com.exemple.model.RabbitQueue.*;
 @Log4j
 public class ConsumerServiceImpl implements ConsumerService {
     private final MainService mainService;
+    private final FileService fileService;
 
-    public ConsumerServiceImpl(MainService mainService) {
+    public ConsumerServiceImpl(MainService mainService, FileService fileService) {
         this.mainService = mainService;
-
+        this.fileService = fileService;
     }
 
     @Override
@@ -25,7 +26,6 @@ public class ConsumerServiceImpl implements ConsumerService {
     public void consumeTextMessageUpdates(Update update) {
         log.debug("NODE: Text message is received");
         mainService.processTextMessage(update);
-
     }
 
     @Override
@@ -34,7 +34,6 @@ public class ConsumerServiceImpl implements ConsumerService {
         log.debug("NODE: Doc message is received");
         mainService.processDocMessage(update);
     }
-
 
     @Override
     @RabbitListener(queues = PHOTO_MESSAGE_UPDATE)
