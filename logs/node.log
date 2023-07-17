@@ -1507,3 +1507,7 @@
 2023-07-15 14:47:12 DEBUG ConsumerServiceImpl:41 - NODE: Photo message is received
 2023-07-15 15:41:57 DEBUG ConsumerServiceImpl:34 - NODE: Doc message is received
 2023-07-15 15:42:46 DEBUG ConsumerServiceImpl:34 - NODE: Doc message is received
+2023-07-17 12:03:30 DEBUG ConsumerServiceImpl:41 - NODE: Photo message is received
+2023-07-17 12:04:08 DEBUG ConsumerServiceImpl:41 - NODE: Photo message is received
+2023-07-17 12:04:33 DEBUG ConsumerServiceImpl:41 - NODE: Photo message is received
+2023-07-17 12:04:37 DEBUG ConsumerServiceImpl:34 - NODE: Doc message is received

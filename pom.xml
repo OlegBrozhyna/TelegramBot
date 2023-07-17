@@ -14,6 +14,7 @@
       <module>node</module>
     <module>node</module>
     <module>common-jpa</module>
+    <module>res-service</module>
   </modules>
   
   <properties>
