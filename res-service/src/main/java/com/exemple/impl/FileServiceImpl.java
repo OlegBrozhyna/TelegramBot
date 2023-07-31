@@ -36,11 +36,16 @@ public class FileServiceImpl implements FileService {
         return appDocumentDAO.findById(id).orElse(null);
     }
 
+
     @Override
-    public AppPhoto getPhoto(String photoId) {
-        var id=Long.parseLong(photoId);
+    public AppPhoto getPhoto(String hash) {
+        var id = cryptoTool.idOf(hash);
+        if (id == null) {
+            return null;
+        }
         return appPhotoDAO.findById(id).orElse(null);
     }
+
 
     @Override
     public FileSystemResource getFileSystemResource(BinaryContent binaryContent) {
