@@ -8,7 +8,7 @@ import com.exemple.entity.AppPhoto;
 import com.exemple.entity.BinaryContent;
 import com.exemple.exception.UploadFileException;
 import com.exemple.service.FileService;
-import lombok.SneakyThrows;
+import com.exemple.service.enums.LinkType;
 import lombok.extern.log4j.Log4j;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import org.telegram.telegrambots.meta.api.objects.Document;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.PhotoSize;
+import utils.CryptoTool;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,15 +37,20 @@ public class FileServiceImpl implements FileService {
     private String fileInfoUri;
     @Value("${service.file_storage.uri}")
     private String fileStorageUri;
+    @Value("${link.address}")
+    private String linkAddress;
     private final AppDocumentDAO appDocumentDAO;
     private final AppPhotoDAO appPhotoDAO;
     private final BinaryContentDAO binaryContentDAO;
+    private final CryptoTool cryptoTool;
 
 
-    public FileServiceImpl(AppDocumentDAO appDocumentDAO, AppPhotoDAO appPhotoDAO, BinaryContentDAO binaryContentDAO) {
+
+    public FileServiceImpl(AppDocumentDAO appDocumentDAO, AppPhotoDAO appPhotoDAO, BinaryContentDAO binaryContentDAO, CryptoTool cryptoTool) {
         this.appDocumentDAO = appDocumentDAO;
         this.appPhotoDAO = appPhotoDAO;
         this.binaryContentDAO = binaryContentDAO;
+        this.cryptoTool = cryptoTool;
     }
 
     @Override
@@ -91,6 +97,8 @@ public class FileServiceImpl implements FileService {
             throw new UploadFileException("Bad response from telegram service: " + response);
         }
     }
+
+
 
 
     private AppPhoto buildTransientAppPhoto(PhotoSize telegramPhoto, BinaryContent persistentBinaryContent) {
@@ -142,5 +150,10 @@ public class FileServiceImpl implements FileService {
                 String.class,
                 token, fileId
         );
+    }
+    @Override
+    public String generateLink(Long docId, LinkType linkType) {
+        var hash = cryptoTool.hashOf(docId);
+        return "http://" + linkAddress + "/" + linkType + "?id=" + hash;
     }
 }

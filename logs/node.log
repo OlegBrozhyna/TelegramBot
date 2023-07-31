@@ -1511,3 +1511,10 @@
 2023-07-17 12:04:08 DEBUG ConsumerServiceImpl:41 - NODE: Photo message is received
 2023-07-17 12:04:33 DEBUG ConsumerServiceImpl:41 - NODE: Photo message is received
 2023-07-17 12:04:37 DEBUG ConsumerServiceImpl:34 - NODE: Doc message is received
+2023-07-31 12:25:52 DEBUG ConsumerServiceImpl:41 - NODE: Photo message is received
+2023-07-31 12:25:53 DEBUG ConsumerServiceImpl:41 - NODE: Photo message is received
+2023-07-31 12:31:45 DEBUG ConsumerServiceImpl:41 - NODE: Photo message is received
+2023-07-31 12:39:18 DEBUG ConsumerServiceImpl:41 - NODE: Photo message is received
+2023-07-31 12:43:52 DEBUG ConsumerServiceImpl:34 - NODE: Doc message is received
+2023-07-31 12:44:06 DEBUG ConsumerServiceImpl:34 - NODE: Doc message is received
+2023-07-31 12:45:16 DEBUG ConsumerServiceImpl:34 - NODE: Doc message is received

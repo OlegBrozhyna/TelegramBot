@@ -10,6 +10,7 @@ import com.exemple.exception.UploadFileException;
 import com.exemple.service.FileService;
 import com.exemple.service.MainService;
 import com.exemple.service.ProducerService;
+import com.exemple.service.enums.LinkType;
 import com.exemple.service.enums.ServiceCommand;
 import lombok.Builder;
 import lombok.extern.log4j.Log4j;
@@ -138,9 +139,9 @@ public class MainServiceImpl implements MainService {
         }
         try {
             AppDocument doc = fileService.processDoc(update.getMessage());
-            //TODO Add document save
+      String link = fileService.generateLink(doc.getId(), LinkType.GET_DOC);
             var answer = "Document uploaded successfully!"
-                    + "Download link: http://Test.downloadPhoto ";
+                    + "Download link:  " + link;
             sendAnswer(answer, chatId);
         } catch (UploadFileException ex) {
             log.error(ex);
@@ -175,9 +176,9 @@ public class MainServiceImpl implements MainService {
             return;
         }try {
             AppPhoto photo=fileService.processPhoto(update.getMessage());
-            //TODO Add download link generation
+            String link = fileService.generateLink(photo.getId(), LinkType.GET_PHOTO);
             var answer = "Photo uploaded successfully!"
-                    + "Download link: http://Test.downloadPhoto ";
+                    + "Download link:  " + link;
             sendAnswer(answer, chatId);
         } catch (UploadFileException ex) {
             log.error(ex);

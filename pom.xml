@@ -15,12 +15,13 @@
     <module>node</module>
     <module>common-jpa</module>
     <module>res-service</module>
+    <module>common-utils</module>
   </modules>
-  
+
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <telegrambot.starter.version> 6.1.0</telegrambot.starter.version>
+    <telegrambot.starter.version>6.1.0</telegrambot.starter.version>
   </properties>
 
   <parent>
